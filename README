@@ -1,0 +1,33 @@
+# -*- mode: org; -*-
+# use org-org-export-to-org to build README.org
+
+* Objective-C String Constants Best Practice
+
+When writing code for a particular platform it is important to be
+mindful of idioms and best practices for that platform. Throughout
+Apple's framework headers and open source code string constants are
+always declared and defined consistently.
+
+Besides matching the existing style and expectations, there are
+practical reasons for declaring your string constants as Apple does.
+
+- direct pointer comparison
+- clear intent
+- documentation
+
+** Header
+
+In a header file declare your string constant like this.
+
+#+INCLUDE: "~/proj/Konst/KTConst.h" :lines "3-" src C
+
+** Implementation
+
+In the corresponding implementation file define the constant like
+this.
+
+#+INCLUDE: "~/proj/Konst/KTConst.m" :lines "3-" src C
+
+** Use
+
+#+INCLUDE: "~/proj/Konst/main.m" :lines "7-10" src C
