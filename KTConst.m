@@ -1,3 +1,3 @@
 #import <Foundation/Foundation.h>
 
-NSString *const KTConstExample = @"Example";
+NSString * const KTConstExample = @"Example";

@@ -28,10 +28,13 @@ In the corresponding implementation file define the constant like
 this.
 
 #+BEGIN_SRC C
-  NSString *const KTConstExample = @"Example";
+  NSString * const KTConstExample = @"Example";
 #+END_SRC
 
 ** Use
+
+Now you can use pointer comparisons rather than using ~isEqual:~ or
+~isEqualToString:~.
 
 #+BEGIN_SRC C
   NSString *inst = @"Example";

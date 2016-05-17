@@ -30,4 +30,7 @@ this.
 
 ** Use
 
+Now you can use pointer comparisons rather than using ~isEqual:~ or
+~isEqualToString:~.
+
 #+INCLUDE: "~/proj/Konst/main.m" :lines "7-10" src C
