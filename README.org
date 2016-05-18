@@ -14,7 +14,9 @@ practical reasons for declaring your string constants as Apple does.
 - clear intent
 - documentation
 
-** Header
+** Best Practice
+
+*** Header
 
 In a header file declare your string constant like this.
 
@@ -22,7 +24,7 @@ In a header file declare your string constant like this.
   FOUNDATION_EXPORT NSString * const KTConstExample;
 #+END_SRC
 
-** Implementation
+*** Implementation
 
 In the corresponding implementation file define the constant like
 this.
@@ -31,7 +33,7 @@ this.
   NSString * const KTConstExample = @"Example";
 #+END_SRC
 
-** Use
+*** Use
 
 Now you can use pointer comparisons rather than using ~isEqual:~ or
 ~isEqualToString:~.
@@ -41,3 +43,15 @@ Now you can use pointer comparisons rather than using ~isEqual:~ or
 
   NSLog(@"equal? %d", inst == KTConstExample);          // works & is always fast!
 #+END_SRC
+
+** Why not use ~#define~
+
+Preprocessor defines are great for many things, but are not great for
+constants. Constants should be declared as ~const~ so the intent is
+clear. Preprocessors defines, by default, only display a warning if
+redefined and can be trivially suppressed. In contrast, redefining a
+constant is a linker error and halts compilation.
+
+The biggest benefit is the ability to use direct pointer comparison
+which is constant time rather than ~isEqual:~ or ~isEqualToString:~
+which can be O(n) at worst.
